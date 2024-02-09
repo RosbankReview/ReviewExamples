@@ -10,22 +10,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j 
 @Component
 public class TransferService {
-    
     @Value("${accountService.url}")
-    private String url; 
-
+    private String url;
     @Value("${transfer.comission}")
     private double comission;
-    
     /
      * REST-service to get account by BIK (БИК)
-     * 
      */
     private AccountRefferenceService accountService;
-    
     /
      * Database
-     * 
      */
     private AccountRepository accountRepository; 
     
