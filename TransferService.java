@@ -15,9 +15,9 @@ public class TransferService {
     @Value("${transfer.comission}")
     private double comission;
     /
-     * REST-service to get account by BIK (БИК)
+     * REST-service to get account by BIС (БИК)
      */
-    private AccountRefferenceService accountService;
+    private AccountReferenceService accountService;
     /
      * Database
      */
@@ -29,13 +29,13 @@ public class TransferService {
     }
     
     
-    public void sendMoney(double amount, long accountFrom, long bankBikTo)  {  
+    public void sendMoney(double amount, long accountFrom, long bankBiсTo)  {  
         
-        if (amount <= 0 || accountFrom <= 0 || bankBikTo <= 0) {
+        if (amount <= 0 || accountFrom <= 0 || bankBiсTo <= 0) {
             throw new IllegalArgumentException("Wrong parameter "); 
         }
         
-        var accountTo = accountService.getAccountByBIK(bankBikTo);
+        var accountTo = accountService.getAccountByBIС(bankBiсTo);
 
         try {
             makeTransfer(accountFrom, accountTo, amount); 
